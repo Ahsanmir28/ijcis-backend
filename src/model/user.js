@@ -10,7 +10,25 @@ const userSchema = new schema({
     email: {
         type: String,
     },
-    password: {
+    first_name: {
+        type: String,
+    },
+    last_name: {
+        type: String,
+    },
+    address: {
+        type: String,
+    },
+    city: {
+        type: String,
+    },
+    country: {
+        type: String,
+    },
+    postal_code: {
+        type: String,
+    },
+    about_me: {
         type: String,
     },
     role: {
@@ -19,7 +37,11 @@ const userSchema = new schema({
     is_verified: {
         type: Boolean,
         default: false,
-    }
+    },
+    // user_id: {
+    //     type: schema.Types.ObjectId,
+    //     ref: 'user'
+    // },
 });
 
 userSchema.set('timestamps', true);

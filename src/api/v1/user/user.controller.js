@@ -133,3 +133,36 @@ exports.getUserById = async (req, res) => {
         })
     }
 }
+exports.fetchUserById = async (req, res) => {
+    try {
+        logger.info('In fetchUserById - Validating  user table data');
+        const {error} = userValidation.validateFetchUserDataById.validate(req.params, {
+            abortEarly: false,
+        });
+        if (error) {
+            logger.info(`Validation error ${JSON.stringify(error.details)}`);
+            return res.status(400).json({
+                message: 'Invalid Request. Please check and try again.',
+                error: error.details,
+            });
+        }
+        logger.info('All validations passed');
+        const journal = await Journal.findAll({
+             user_id: user_id,
+         })
+        if (!user) {
+            return res.status(404).json({
+                message: 'User not found'
+            });
+        }
+        return res.status(200).json({
+            message: 'User found',
+            data: user,
+        });
+    } catch (error) {
+        console.log('error')
+        return res.status(500).json({
+            message: 'Server error'
+        })
+    }
+}

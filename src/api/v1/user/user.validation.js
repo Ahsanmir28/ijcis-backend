@@ -23,3 +23,6 @@ exports.validateUpdateUser = Joi.object({
 exports.validateGetUserDataById = Joi.object({
     id: Joi.string().required(),
 });
+exports.validateFetchUserDataById = Joi.object({
+    id: Joi.string().required(),
+});

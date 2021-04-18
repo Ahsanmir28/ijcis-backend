@@ -28,7 +28,7 @@ exports.createLogin = async (req, res) => {
         const loginUser = await User.findOne({
             email: email,
         });
-        console.log('loginUserpassword', loginUser.password);
+        console.log('loginUserpassword', loginUser);
         if (!loginUser) {
             return res.status(404).json({
                 message: 'Email is incorrect'
@@ -49,7 +49,7 @@ exports.createLogin = async (req, res) => {
             message: 'Login is successfully'
         });
     } catch (error) {
-        console.log('error')
+        console.log('error', error)
         return res.status(500).json({
             message: 'Server error'
         })

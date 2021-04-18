@@ -30,7 +30,7 @@ app.use(cookieParser());
 
 app.use('/api', Api);
 
-mongoose.connect(MONGODB_URL, { useUnifiedTopology: true, useNewUrlParser: true }).then(() => {
+mongoose.connect(MONGODB_URL, { useUnifiedTopology: true, useNewUrlParser: true, useFindAndModify: false, useCreateIndex: true }).then(() => {
     console.log('Database connected to ijcis')
 }).catch((err) => {
     console.log('conection error in db', err)

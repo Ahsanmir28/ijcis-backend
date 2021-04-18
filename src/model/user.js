@@ -10,6 +10,9 @@ const userSchema = new schema({
     email: {
         type: String,
     },
+    password: {
+        type: String,
+    },
     first_name: {
         type: String,
     },
@@ -38,12 +41,8 @@ const userSchema = new schema({
         type: Boolean,
         default: false,
     },
-    // user_id: {
-    //     type: schema.Types.ObjectId,
-    //     ref: 'user'
-    // },
 });
 
 userSchema.set('timestamps', true);
 
-module.exports = mongoose.model('user', userSchema);
+module.exports = mongoose.model('users', userSchema);

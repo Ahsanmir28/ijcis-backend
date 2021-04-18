@@ -13,5 +13,5 @@ exports.validateGetJournalById = Joi.object({
     id: Joi.string().required(),
 });
 exports.validateDelJournalById = Joi.object({
-    journal_id: Joi.string().required(),
+    id: Joi.string().required(),
 });

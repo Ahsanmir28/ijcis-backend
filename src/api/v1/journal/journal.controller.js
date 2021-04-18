@@ -123,15 +123,9 @@ exports.delJournalById = async (req, res) => {
             });
         }
         logger.info('All validations passed');
-        const journal = await Journal.delete(req.params.id);
-        if (!journal) {
-            return res.status(404).json({
-                message: 'Journal not found'
-            });
-        }
+        await Journal.deleteOne({ _id: req.params.id });
         return res.status(200).json({
-            message: 'Journal found',
-            data: journal,
+            message: 'Journal Deleted',
         });
     } catch (error) {
         console.log('error')

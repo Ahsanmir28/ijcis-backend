@@ -5,10 +5,6 @@ const journalSchema = new schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'users'
     },
-    delete: {
-        type: String,
-        ref:'users'
-    },
     journal_title: {
         type: String,
     },
@@ -22,9 +18,6 @@ const journalSchema = new schema({
         type: String,
     },
     journal_issn:{
-        type: String,
-    },
-    journal_editor:{
         type: String,
     },
 });

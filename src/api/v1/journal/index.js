@@ -12,4 +12,5 @@ router.get('/user_id/:id', journalController.getJournalByUserId);
 
 router.delete('/:id', journalController.delJournalById);
 
+
 module.exports = router;

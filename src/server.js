@@ -41,7 +41,7 @@ app.use(responseTime(async (req, res, time) => {
     timeLogger.info(`${req.originalUrl}: ${timeTaken}`);
 }))
 
-http.createServer(app).listen(8080, function () {
+http.createServer(app).listen(port, function () {
     console.log('server listen on pport 8080');
     rootLogger.info('Http server listening on port ' + 8080);
 });

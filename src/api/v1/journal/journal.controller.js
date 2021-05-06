@@ -3,6 +3,23 @@ const Journal = require(appRoot + '/src/model/journal');
 const journalValidation = require('./journal.validation');
 const logger = require(appRoot + '/src/logger').apiLogger;
 
+
+
+exports.getAllJournals = async (req, res) => {
+    try {
+        const journals = await Journal.find();
+        return res.status(202).json({
+            data: journals,
+            message: 'All journals found'
+        });
+    }catch (error) {
+        console.log('error')
+        return res.create(500).json({
+            message: 'Server error'
+        })
+    }
+}
+
 exports.saveJournal = async (req, res) => {
     try {
         const body = ({

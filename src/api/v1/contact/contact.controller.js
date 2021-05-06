@@ -3,6 +3,20 @@ const Contact = require(appRoot + '/src/model/contact');
 const contactValidation = require('./contact.validation');
 const logger = require(appRoot + '/src/logger').apiLogger;
 
+exports.getAllContacts = async (req, res) => {
+    try {
+        const contacts = await Contact.find();
+        return res.status(202).json({
+            data: contacts,
+            message: 'All contacts found'
+        });
+    }catch (error) {
+        console.log('error')
+        return res.create(500).json({
+            message: 'Server error'
+        })
+    }
+}
 exports.getContactByJournalId = async (req, res) => {
     try {
         const { id } = req.params;
@@ -47,6 +61,7 @@ exports.saveContact = async (req, res) => {
             phone,
             affiliation,
             address,
+            journal_id,
         } = req.body);
         logger.info('In createContact - Validating Journal input data');
         const {error} = contactValidation.validateSaveContact.validate(body, {

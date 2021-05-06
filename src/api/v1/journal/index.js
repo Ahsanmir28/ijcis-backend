@@ -4,6 +4,9 @@ const router = express.Router();
 const journalController = require ('./journal.controller');
 const auth = require(appRoot + '/src/middleware');
 
+
+router.get('/all-journals', journalController.getAllJournals);
+
 router.post('/', journalController.saveJournal);
 
 router.get('/:id', journalController.getJournalById);

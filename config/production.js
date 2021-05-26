@@ -14,7 +14,8 @@
 module.exports = {
 
   sendGrid: {
-    liveMode: true
+    apiKey: fromEnv('SEND_GRID_API_KEY', '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'),
+    forgotPassLink:fromEnv('SEND_GRID_EMAIL_FROM', 'https://ijcis.herokuapp.com/update-password'),
   },
 
 };

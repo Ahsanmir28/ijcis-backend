@@ -20,6 +20,10 @@ const journalSchema = new schema({
     journal_issn:{
         type: String,
     },
+    is_published: {
+        type: Boolean,
+        default: false
+    }
 });
 
 journalSchema.set('timestamps', true);

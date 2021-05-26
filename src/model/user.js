@@ -41,6 +41,9 @@ const userSchema = new schema({
         type: Boolean,
         default: false,
     },
+    forgot_pass: {
+        type: String,
+    }
 });
 
 userSchema.set('timestamps', true);

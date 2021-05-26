@@ -41,12 +41,9 @@ module.exports = {
   },
 
   sendGrid: {
-    apiKey: fromEnv('SEND_GRID_API_KEY', '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'),
-    loginLink:fromEnv('SEND_GRID_EMAIL_FROM', 'http://localhost:3000/influencer/login-influencer'),
-    patronLoginLink:fromEnv('PATRON_SEND_GRID_EMAIL_FROM', 'http://localhost:3000/login'),
-    liveMode: false
+    apiKey: fromEnv('SEND_GRID_API_KEY', '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'),
+    forgotPassLink:fromEnv('SEND_GRID_EMAIL_FROM', 'http://localhost:3000/update-password'),
   },
-
   stripe: {
     apiKey: fromEnv('STRIPE_API_SECRET_KEY', 'sk_test_51HrIuYBzY9GDlMt18KnCU4ebMLqfUA7GqD5OQcviWr5p5ZJnnyI2qYl4U4FGbfmi8hVXFda5GbnP7BIHMyGzJnpl00gYmmHpuy'),
   },

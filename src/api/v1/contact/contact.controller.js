@@ -34,7 +34,7 @@ exports.getContactByJournalId = async (req, res) => {
         console.log('req.query', req.query);
         console.log('req.params', req.params);
         logger.info('All validations passed');
-        const contact = await Contact.find({
+        const contact = await Contact.findOne({
             journal_id: id,
         });
         console.log('contact', contact);
@@ -83,6 +83,33 @@ exports.saveContact = async (req, res) => {
     }catch (error) {
         console.log('error')
         return res.create(500).json({
+            message: 'Server error'
+        })
+    }
+}
+
+exports.updateContact = async (req, res) => {
+    try {
+        const body = ({
+            name,
+            email,
+            phone,
+            affiliation,
+            address,
+            journal_id,
+        } = req.body);
+        logger.info('In createSection - Validating  section input data');
+        const section = await Contact.findByIdAndUpdate({ _id: req.params.id }, body, {
+            new: true,
+        });
+        logger.info('Returning back User data with success code 200');
+        return res.status(202).json({
+            data: section,
+            message: 'section updated successfully'
+        });
+    } catch (error) {
+        console.log('error')
+        return res.status(500).json({
             message: 'Server error'
         })
     }

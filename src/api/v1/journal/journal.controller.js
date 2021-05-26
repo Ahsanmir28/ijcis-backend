@@ -53,6 +53,30 @@ exports.saveJournal = async (req, res) => {
         })
     }
 }
+
+exports.publishJournal = async (req, res) => {
+    try {
+        const body = ({
+            journal_id,
+        } = req.body);
+        const updateBody = {
+            is_published: true,
+        }
+        const journal = await Journal.findByIdAndUpdate({ _id: journal_id }, updateBody, {
+            new: true,
+        });
+        return res.status(202).json({
+            message: 'Data Updated successfully',
+            data: journal,
+        });
+    }catch (error) {
+        console.log('error')
+        return res.create(500).json({
+            message: 'Server error'
+        })
+    }
+}
+
 exports.getJournalById = async (req, res) => {
     try {
         logger.info('In getJournalById - Validating  journal input data');
